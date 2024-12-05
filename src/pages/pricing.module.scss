@@ -1,0 +1,26 @@
+.pricing {
+    background-color: var(--color-dark--1);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 97%;
+    justify-content: space-around;
+
+    &__text {
+        width: 50%;
+        height: 100%;
+    }
+
+    &__image {
+        width: 30%;
+        height: 100%;
+    }
+
+    &__text,
+    &__image {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

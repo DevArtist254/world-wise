@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from '../components/nav/Nav';
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
@@ -27,9 +28,9 @@ function Login() {
             value="1231"
           />
         </div>
-        <button type="submit" className="form__submit btn">
-          LOGIN
-        </button>
+        <div type="submit" className="form__submit">
+          <Link className='cta'>LOGIN</Link>
+        </div>
       </form>
     </div>
   );

@@ -40,7 +40,7 @@ body {
 
 #root {
     position: relative;
-    margin-top: 3%;
+    margin-top: 2%;
     width: 95%;
     height: 95vh;
 }
@@ -63,4 +63,8 @@ body {
 
 .clr-white {
     color: var(--color-light--2);
+}
+
+.image {
+    width: 100%;
 }
