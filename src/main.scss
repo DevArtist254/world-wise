@@ -1,13 +1,17 @@
 @use "./components/base.scss";
 @use "./components/form.scss";
 @use "./components/link.scss";
-@use "./components/nav/Nav.module.scss";
 
+@use "./components/nav/Nav.module.scss";
+@use "./components/SideBar/SideBar.scss";
+@use "./components/Map/Map.scss";
+@use "./components/User/User.scss";
 
 @use "./pages/LandingPage.scss";
 @use "./pages/pricing.module.scss";
 @use "./pages/product.module.scss";
 @use "./pages/login.module.scss";
+@use "./pages/Applayout.scss";
 
 
 

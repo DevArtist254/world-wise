@@ -1,15 +1,12 @@
 import React from 'react'
 import { NavLink } from "react-router-dom"
+import Logo from '../Logo';
 
 
 function Nav() {
   return (
     <nav className="nav">
-      <NavLink to="/">
-        <span className="nav__logo">
-          <img src="../public/logo.png" alt="logo" className="nav__logo--img" />
-        </span>
-      </NavLink>
+      <Logo />
       <ul className="nav__list">
         <li>
           <NavLink className="clr-white text uppercase" to="/pricing">

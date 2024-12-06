@@ -29,7 +29,7 @@ function Login() {
           />
         </div>
         <div type="submit" className="form__submit">
-          <Link className='cta'>LOGIN</Link>
+          <Link className='cta' to="/app">LOGIN</Link>
         </div>
       </form>
     </div>
