@@ -1,8 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import City from './city'
+import { useCities } from '../../context/CitiesContext'
 
-function Cities({loading, cities}) {
+function Cities() {
+  const {loading, cities} = useCities();
 
   if (loading) return <p>Loading....</p>
 
@@ -13,11 +14,6 @@ function Cities({loading, cities}) {
       <City key={el.id} data={el} />
     ))}</div>
   )
-}
-
-Cities.propTypes = {
-  loading: PropTypes.bool,
-  cities: PropTypes.array
 }
 
 export default Cities

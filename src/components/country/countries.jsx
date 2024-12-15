@@ -1,8 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Country from "./country";
+import { useCities } from "../../context/CitiesContext";
 
-function Countries({ loading, cities }) {
+function Countries() {
+  const { loading, cities } = useCities();
   if (loading) return <p>Loading....</p>;
 
   if (!cities.length) return <p>Start your adventure here!</p>;
@@ -25,10 +26,5 @@ function Countries({ loading, cities }) {
     </div>
   );
 }
-
-Countries.propTypes = {
-  loading: PropTypes.bool,
-  cities: PropTypes.array,
-};
 
 export default Countries;

@@ -6,6 +6,7 @@
 }
 
 .city {
+
     &:visited,
     &:link {
         text-decoration: none;
@@ -51,4 +52,8 @@
         align-items: center;
         justify-content: center;
     }
+}
+
+.city__active {
+    border: 1px solid var(--color-brand--2);
 }
