@@ -32,8 +32,8 @@
             border-radius: 5px;
         }
 
-        // a:global(.active) {
-        //     background-color: var(--color-dark--0);
-        // }
+        & > a.active {
+            background-color: var(--color-dark--0);
+        }
     }
 }

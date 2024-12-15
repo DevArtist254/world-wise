@@ -8,7 +8,7 @@ function SideNavBar() {
         <li className="sidenavbar__item">
           <NavLink to="cities">cities</NavLink>
         </li>
-        <li className={`sidenavbar__item`}>
+        <li className="sidenavbar__item">
           <NavLink to="countries">coutries</NavLink>
         </li>
       </ul>
