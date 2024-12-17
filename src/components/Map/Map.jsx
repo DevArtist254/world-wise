@@ -1,17 +1,30 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react'
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
-import { useSearchParams } from 'react-router-dom'
-import { useCities } from '../../context/CitiesContext';
+import React, { useEffect, useState } from "react";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useCities } from "../../context/CitiesContext";
+import { useGeolocation } from "../../hooks/useGeolocation";
 
 function Map() {
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
+  const {
+    isLoading: isLoadingPosition,
+    position: getLocationPosition,
+    getPosition,
+  } = useGeolocation();
   const [search] = useSearchParams();
-  const {cities} = useCities();
+  const { cities } = useCities();
 
   const lat = search.get("lat") || mapPosition[0];
   const lng = search.get("lng") || mapPosition[1];
-  
+
   useEffect(
     function () {
       setMapPosition([lat, lng]);
@@ -19,10 +32,21 @@ function Map() {
     [lat, lng]
   );
 
+  useEffect(
+    function () {
+      if (getLocationPosition)
+        setMapPosition([getLocationPosition.lat, getLocationPosition.lng]);
+    },
+    [getLocationPosition]
+  );
 
- 
   return (
     <div className="map">
+      {!getLocationPosition && (
+        <button onClick={getPosition}>
+          {isLoadingPosition ? "Loading...." : "Use your position"}
+        </button>
+      )}
       <MapContainer
         center={mapPosition}
         zoom={13}
@@ -45,6 +69,7 @@ function Map() {
         ))}
 
         <ChangeCenter position={mapPosition} />
+        <DetectClick />
       </MapContainer>
     </div>
   );
@@ -56,4 +81,12 @@ function ChangeCenter({ position }) {
   return null;
 }
 
-export default Map
+function DetectClick() {
+  const nav = useNavigate();
+
+  useMapEvents({
+    click: (e) => nav(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+  });
+}
+
+export default Map;

@@ -24,7 +24,7 @@ export default function App() {
             <Route path="cities" element={<Cities />} />
             <Route path="cities/:id" element={<CityItem />} />
             <Route path="countries" element={<Countries />} />
-            <Route path="countries" element={<p>Form</p>} />
+            <Route path="form" element={<p>Form</p>} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
